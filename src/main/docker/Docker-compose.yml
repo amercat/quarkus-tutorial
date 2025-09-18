@@ -1,0 +1,11 @@
+# docker-compose.yml
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: sakila
+      MYSQL_DATABASE: sakila
+    ports:
+      - "3306:3306"
