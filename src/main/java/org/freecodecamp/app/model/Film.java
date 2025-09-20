@@ -14,7 +14,7 @@ public class Film {
 
     public Film() {}
 
-    public Film(short filmId, String title, short length) {
+    public Film(Short filmId, String title, Short length) {
         this.filmId = filmId;
         this.title = title;
         this.length = length;
@@ -23,7 +23,8 @@ public class Film {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "film_id")
-    private short filmId;
+    private Short filmId;  // Changed from short to Short
+
     @Basic
     @Column(name = "title")
     private String title;
@@ -65,11 +66,11 @@ public class Film {
     )
     private List<Actor> actors = new ArrayList<>();
 
-    public short getFilmId() {
+    public Short getFilmId() {  // Changed return type from short to Short
         return filmId;
     }
 
-    public void setFilmId(short filmId) {
+    public void setFilmId(Short filmId) {  // Changed parameter type from short to Short
         this.filmId = filmId;
     }
 
@@ -166,7 +167,7 @@ public class Film {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Film film = (Film) o;
-        return filmId == film.filmId && languageId == film.languageId && rentalDuration == film.rentalDuration && Objects.equals(title, film.title) && Objects.equals(description, film.description) && Objects.equals(originalLanguageId, film.originalLanguageId) && Objects.equals(rentalRate, film.rentalRate) && Objects.equals(length, film.length) && Objects.equals(replacementCost, film.replacementCost) && Objects.equals(rating, film.rating) && Objects.equals(specialFeatures, film.specialFeatures) && Objects.equals(lastUpdate, film.lastUpdate);
+        return Objects.equals(filmId, film.filmId) && languageId == film.languageId && rentalDuration == film.rentalDuration && Objects.equals(title, film.title) && Objects.equals(description, film.description) && Objects.equals(originalLanguageId, film.originalLanguageId) && Objects.equals(rentalRate, film.rentalRate) && Objects.equals(length, film.length) && Objects.equals(replacementCost, film.replacementCost) && Objects.equals(rating, film.rating) && Objects.equals(specialFeatures, film.specialFeatures) && Objects.equals(lastUpdate, film.lastUpdate);
     }
 
     @Override
